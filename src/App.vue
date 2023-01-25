@@ -17,72 +17,28 @@
       <br>
       <br>
 
-      <!-- TABLE -->
-      <div class="text-center">
-        
-          <b-table
-            id="myTabel"
-            hover
-            striped
-            :items="tableData"
-            :fields="tableColumns"
-          >
-            <template slot="selected" slot-scope="row">
-              <b-form-group>
-                <input type="checkbox" v-model="row.item.selected"  @change="marcarComoFeito(row.item)" />
-              </b-form-group>
-            </template>
-
-            <template slot="button" slot-scope="row">
-              <b-form-group>
-                <b-button v-on:click="delet(row.item.id)" variant="danger">Delete</b-button>
-              </b-form-group>
-            </template>
-
-          </b-table>
-      </div>
+      <Table />
 
   </div>
 </template>
 
 <script>
+    import Table from '@/components/Table';
+
     export default 
     {
       name: 'App',
-      data: () => 
-        ({
-              novoAfazer:'',
-              tableData: [
-                {
-                  id: 0,
-                  titulo: "Comprar Comida",
-                  selected: false,
-                  _rowVariant: ""
-                },
-                {
-                  id: 1,
-                  titulo: "Fazer Academia",
-                  selected: false,
-                  _rowVariant:""
-                }
-              ],
-              tableColumns: [
-                { key: "selected", label: "", sortable: false },
-                { key: "id", label: "ID", sortable: false },
-                { key: "titulo", label: "Titulo", sortable: false },
-                { key: "button", label: "Ações", sortable: false }
-              ]
-              
-        }),
-        methods: {
-          delet: function (index) {
+      components: {
+        Table
+      },
+      methods: {
+          delete: function (index) {
               this.tableData.splice(this.tableData.findIndex(x => x.id == index), 1);
           },
           marcarComoFeito: function(data){
               data._rowVariant  = this.getVariant(data.selected);
           },
           adicionar: function(){
-              
               let ultimo;
               let id;
 
@@ -120,12 +76,12 @@
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  #app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 60px;
+  }
 </style>
