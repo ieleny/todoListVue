@@ -21,6 +21,9 @@ const list =  new Vuex.Store({
       },
       DELETE_ITEM(state, index) {
         state.tableData.splice(state.tableData.findIndex(item => item.id == index), 1);
+
+        console.log(state.tableData);
+        console.log(index);
       }
     },
     actions: {

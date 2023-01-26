@@ -6,7 +6,6 @@
             striped
             :items="tableData"
             :fields="tableColumns"
-            show-empty
         >   
 
             <template #empty="scope">
@@ -18,7 +17,7 @@
             </template>
 
             <template v-slot:cell(actions)="row">
-                <b-button type="buton" @click="removingItem(row.index)" variant="danger" class="mb-2">Delete</b-button>
+                <b-button type="buton" @click="removingItem(row.item.id)" variant="danger" class="mb-2">Delete</b-button>
             </template>
 
         </b-table>
