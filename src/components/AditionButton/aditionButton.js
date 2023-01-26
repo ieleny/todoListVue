@@ -19,6 +19,7 @@ export default{
             });
 
             this.addTodoList(this.tableData);
+            this.newToDo = '';
         },
         defineId(){
             let ultimoId;
