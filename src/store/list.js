@@ -18,12 +18,18 @@ const list =  new Vuex.Store({
     mutations: {
       SET_ITENS(state, item) {
         state.tableData = item;
+      },
+      DELETE_ITEM(state, index) {
+        state.tableData.splice(state.tableData.findIndex(item => item.id == index), 1);
       }
     },
     actions: {
-       addTodoList({commit}, item) {
-          commit('SET_ITENS', item);
-       } 
+      addTodoList({commit}, item) {
+        commit('SET_ITENS', item);
+      },
+      removingItem({commit}, index){
+        commit('DELETE_ITEM', index);
+      }
     }
 });
 

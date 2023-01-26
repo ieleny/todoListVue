@@ -1,22 +1,24 @@
 <template id="app-table">
     <div class="text-center">
         <b-table
-            id="tableToDo"
+            id="tableToDoList"
             hover
             striped
             :items="tableData"
             :fields="tableColumns"
-        >
-            <template slot="selected" slot-scope="row">
-                <b-form-group>
-                    <input type="checkbox" v-model="row.item.selected"  @change="marcarComoFeito(row.item)" />
-                </b-form-group>
+            show-empty
+        >   
+
+            <template #empty="scope">
+                <h4>Não há items na sua lista</h4>
             </template>
 
-            <template slot="button" slot-scope="row">
-                <b-form-group>
-                    <b-button v-on:click="delete(row.item.id)" variant="danger">Delete</b-button>
-                </b-form-group>
+            <template v-slot:cell(selected)="row">
+                <input type="checkbox" v-model="row.item.selected"  @change="marcarComoFeito(row.item)" />
+            </template>
+
+            <template v-slot:cell(actions)="row">
+                <b-button type="buton" @click="removingItem(row.index)" variant="danger" class="mb-2">Delete</b-button>
             </template>
 
         </b-table>
