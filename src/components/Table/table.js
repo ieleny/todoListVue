@@ -8,7 +8,7 @@ export default
         tableColumns: [
           { key: "selected", label: "", sortable: false },
           { key: "id", label: "ID", sortable: false },
-          { key: "titulo", label: "Titulo", sortable: false },
+          { key: "title", label: "Titulo", sortable: false },
           { key: "button", label: "Ações", sortable: false }
         ]
       }

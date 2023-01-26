@@ -6,7 +6,13 @@ Vue.use(Vuex)
 const list =  new Vuex.Store({
     state () {
       return {
-        tableData: []
+        tableData: [
+          {
+            id: 1,
+            title: "Ir para academia",
+            selected: false
+          }
+        ]
       }
     },
     mutations: {

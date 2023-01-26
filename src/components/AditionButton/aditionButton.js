@@ -14,7 +14,7 @@ export default{
         addition(){
             this.tableData.push({
                   id: this.defineId(),
-                  titulo: this.newToDo,
+                  title: this.newToDo,
                   selected: false
             });
 
