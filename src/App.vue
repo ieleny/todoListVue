@@ -6,30 +6,22 @@
 
       <br>
 
-      <!-- Adicionar -->
-      <b-row class="row col-xs-12 col-sm-12 col-md-12 col-lg-12"  align="right">
-          <b-col sm="10">
-            <b-form-input type="text" id="novoAfazer" name="novoAfazer" v-model="novoAfazer"></b-form-input>
-          </b-col>
-          <b-button v-on:click="adicionar()" >Adicionar</b-button>   
-      </b-row>
-
-      <br>
-      <br>
-
+      <AditionButton />
       <Table />
 
   </div>
 </template>
 
 <script>
-    import Table from '@/components/Table';
+  import Table from '@/components/Table';
+  import AditionButton from '@/components/AditionButton';
 
     export default 
     {
       name: 'App',
       components: {
-        Table
+        Table,
+        AditionButton
       },
       methods: {
           delete: function (index) {
