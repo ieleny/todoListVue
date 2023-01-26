@@ -2,31 +2,40 @@ import { mapActions, mapState } from 'vuex';
 
 export default{
     name:"app-button-add",
+    data() { 
+        return {
+            newToDo: ''
+        }
+    },
+    computed: {
+        ...mapState(['tableData'])
+    },
     methods: {
-        addition: function(){
-/*             let ultimo;
-            let id;
+        addition(){
+            this.tableData.push({
+                  id: this.defineId(),
+                  titulo: this.newToDo,
+                  selected: false
+            });
+
+            this.addTodoList(this.tableData);
+        },
+        defineId(){
+            let ultimoId;
+            let idAtual;
 
             if(this.tableData.length <= 0)
             {
-                id = 0;
-
+                idAtual = 0;
             }else{
-
-                ultimo = this.tableData.reduce(function(prev,current){
+                ultimoId = this.tableData.reduce(function(prev,current){
                   return (prev.id > current.id) ? prev : current
                 });
 
-                id = ultimo.id + 1;
+                idAtual = ultimoId.id + 1;
             }
-            
-            this.tableData.push({
-                  id: id,
-                  titulo: this.novoAfazer,
-                  selected: false
-            }); */
 
-            console.log(this.addTodoList(['teste']));
+            return idAtual;
         },
         ...mapActions(['addTodoList'])
     } 
