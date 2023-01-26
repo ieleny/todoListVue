@@ -10,13 +10,13 @@ const list =  new Vuex.Store({
       }
     },
     mutations: {
-      SET_ITENS(state) {
-        this.tableData = state.tableData;
+      SET_ITENS(state, item) {
+        state.tableData = item;
       }
     },
     actions: {
-       addTodoList({commit}, list) {
-          commit('SET_ITENS', list);
+       addTodoList({commit}, item) {
+          commit('SET_ITENS', item);
        } 
     }
 });
